@@ -3,31 +3,9 @@
 All notable changes to the "vscode-psl" extension will be documented in this
 file.
 
-## v1.13.4
-
-* Update the `json5` dependency to 2.2.3 and increment version numbers. Note
-  that this change is similar to 1.12.2, as the 1.13 version is a split from
-  1.12 for now.
-
-## v1.13.3
-
-* Corrected highlight for storage modifier keywords in formal parameter rule.
-
-## v1.13.2
-
-* Further enhancements in Language highlight.
-
-## v1.13.1
-
-* Fix bugs introduced in Language highlight enhancements.
-
-## v1.13.0
-
-* Language highlight enhancements.
-
 ## v1.12.2
 
-* Update the `json5` dependency to 2.2.3 and increment version numbers.
+* Update dependency json5 to 2.2.3
 
 ## v1.12.1
 

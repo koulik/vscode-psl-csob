@@ -9,8 +9,8 @@ import * as iconv from 'iconv-lite';
  * 
  * @returns The string decoded from the buffer.
  */
-export function bufferToString(buffer: Buffer, encoding: BufferEncoding | 'iso88592'): string {
-    if (encoding === 'iso88592') {
+export function bufferToString(buffer: Buffer, encoding: BufferEncoding | 'iso-8859-2'): string {
+    if (encoding === 'iso-8859-2') {
         return iconv.decode(buffer, 'iso88592');
     } else {
         return buffer.toString(encoding);

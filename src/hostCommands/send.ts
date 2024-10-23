@@ -98,7 +98,7 @@ async function sendElement(fsPath: string) {
 			connection.close();
 			utils.logger.info(`${utils.icons.SUCCESS} ${icon} ${path.basename(fsPath)} SEND to ${env.name} successful`);
 		}).catch((e: Error) => {
-			utils.logger.error(`${utils.icons.ERROR} ${icon} error in ${env.name} ${e}`);
+			utils.logger.error(`${utils.icons.ERROR} ${icon} error in ${env.name} ${e.message}`);
 		}))
 	};
 	await Promise.all(promises);

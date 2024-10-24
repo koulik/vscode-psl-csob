@@ -3,6 +3,7 @@ import * as vscode from 'vscode';
 export { extensionToDescription } from '../mtm/utils';
 import * as environment from '../common/environment';
 import { MtmConnection } from '../mtm/mtm';
+import * as iconv from 'iconv-lite';
 
 const outputChannel = vscode.window.createOutputChannel('Profile Host');
 
@@ -131,7 +132,7 @@ export function writeFileWithSettings(fsPath: string, output: string): Promise<v
 		default:
 			break;
 	}
-	return fs.writeFile(fsPath, output);
+	return fs.writeFile(fsPath, iconv.encode(output, 'iso88592'));
 }
 
 /**

@@ -123,14 +123,11 @@ export function parseResponse(serviceClass: number, outputData: Buffer, encoding
 	returnArray = lv2vFormat(outputData);
 	returnArray = lv2vFormat(returnArray[1]);
 	returnArray = lv2vFormat(returnArray[1]);
-	//orig: returnString = returnArray[0].toString(encoding)
 	returnString = encode.bufferToString(returnArray[0], encoding)
 	if (returnString === 'ER') {
-		//orig: throw returnArray.map(x => x.toString(encoding)).join('')
 		throw returnArray.map(x => encode.bufferToString(x, encoding)).join('')
 	}
 	if (serviceClass === 5) {
-		//orig: returnString = returnArray[2].toString(encoding) + String.fromCharCode(0) + returnArray[3].toString(encoding)
 		returnString = encode.bufferToString(returnArray[2], encoding) + String.fromCharCode(0) + encode.bufferToString(returnArray[3], encoding)		
 	}
 	return returnString;

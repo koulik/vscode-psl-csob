@@ -1,7 +1,6 @@
 import HostSocket from './hostSocket';
 import * as utils from './utils';
 import * as fs from 'fs';
-import * as encode from '../common/encode';
 
 enum ServiceClass {
 	CONNECTION = 0,
@@ -159,11 +158,10 @@ export class MtmConnection {
 
 	private async _send(filename: string) {
 		let returnString: string;
-		// orig: let fileString: string = (await readFileAsync(filename, {encoding: this.encoding})).toString(this.encoding);
 		let fileContent = await readFileAsync(filename);		
 		let fileString: string;
 		if (Buffer.isBuffer(fileContent)) {
-			fileString = encode.bufferToString(fileContent, this.encoding);
+			fileString = fileContent.toString('binary');
 		} else {
 			fileString = fileContent;
 		}
@@ -353,9 +351,9 @@ export class MtmConnection {
 	}
 }
 
-function readFileAsync(file: string, options?: {encoding?: string, flag?: string}): Promise<Buffer | string> {
+function readFileAsync(file: string): Promise<Buffer | string> {
 	return new Promise((resolve, reject) => {
-		fs.readFile(file, {encoding: null, flag: options.flag}, (err, data) => {
+		fs.readFile(file, {encoding: null, flag: null}, (err, data) => {
 			if (err) {
 				reject(err);
 			} else {

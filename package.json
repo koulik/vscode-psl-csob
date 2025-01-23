@@ -2,7 +2,7 @@
   "name": "vscode-psl-csob",
   "displayName": "VS Code PSL CSOB (ISO-8859-2)",
   "description": "Profile Scripting Language support",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "preview": true,
   "publisher": "petkoula",
   "engines": {

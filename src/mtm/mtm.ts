@@ -262,6 +262,9 @@ export class MtmConnection {
 		columnList = returnString.split('\r\n');
 		returnString = tableReturnString
 		for (let i = 0; i < columnList.length; i++) {
+		    if (isDoubleQuotedString(columnList[i])) {
+		        continue
+		    }
 			fileName = fileDetails.fileName + '-' + columnList[i] + '.COL'
 			returnString = returnString + String.fromCharCode(0) + fileName + String.fromCharCode(1) + await this._get(fileName)
 		}
@@ -361,4 +364,8 @@ function readFileAsync(file: string): Promise<Buffer | string> {
 			}
 		});
 	});
+}
+
+function isDoubleQuotedString(str: string): boolean {
+    return /^".*"$/.test(str);
 }
